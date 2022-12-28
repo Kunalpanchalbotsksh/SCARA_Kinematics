@@ -1,0 +1,4 @@
+My old python program that can be more optimized but I kept it as to show what program were running behind my SCARA Robotic ARM.
+
+More optimization can be done on loops and also use serial lib to communicate with arduino didn't know MicroPython Exist!
+Code don't have Serial lib related code as it won't work without my SCARA Hardware setup so consider its as my core program.
