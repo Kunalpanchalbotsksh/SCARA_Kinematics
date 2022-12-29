@@ -1,3 +1,4 @@
+Project Report link:- https://www.slideshare.net/KunalPanchal37/design-and-fabrication-of-a-selective-compliance-articulated-robot-arm-scara
 My old python program that can be more optimized but I kept it as to show what program were running behind my SCARA Robotic ARM.
 
 More optimization can be done on loops and also use serial lib to communicate with arduino didn't know MicroPython Exist!
