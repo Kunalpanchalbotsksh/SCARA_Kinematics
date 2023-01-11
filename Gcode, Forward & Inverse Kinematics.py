@@ -1,5 +1,5 @@
 import math
-import string
+#import string #related to arduino serial data type conversion (might save your time and mine too)
 print("Take Clockwise = Negative (-ve), Anticlockwise = Positive (+ve)")
 z=0
 alpha1=0
@@ -13,10 +13,10 @@ print("\nInputs Method to control SCARA:-\nBy Forward Kinematics = F/f\nBy Inver
 while True:
       while True:
          Initial_input= input("\nMethod to control SCARA:")
-         if Initial_input in ("F","f","I","i","G","g","quit","end"):
+         if Initial_input in ("F","f","I","i","G","g","QUIT","quit","end"):
             break
          print("invalid input")
-      if Initial_input in ("quit","end"):
+      if Initial_input in ("quit","QUIT","end"):
          print("Ended")
          break
       elif Initial_input in ("F","f"):
@@ -79,12 +79,12 @@ while True:
             print("Arm 2 at Angle w.r.t x-asis:",alpha2)   
             while True:
                r=input("Check for Next Rotation:")
-               if r in ("y","n","yes","no"):
+               if r in ("y","n","yes","Y","N","no"):
                   break
                   print("invalid input")
-            if r in ("y","yes"):
+            if r in ("y","yes","Y"):
                   continue
-            elif r in ("n","no"):
+            elif r in ("n","no","N"):
                   print("Ended")
                   break    
       elif Initial_input in ("I","i"):
@@ -115,22 +115,22 @@ while True:
             print
             while True:
                   r=input("Check for Next Rotation:")
-                  if r in ("y","n","yes","no"):
+                  if r in ("y","Y","n","N","yes","no"):
                      break
                   print("invalid input")
-            if r in ("y","yes"):
+            if r in ("y","yes","Y"):
                   continue
-            elif r in ("n","no"):
+            elif r in ("n","no","N"):
                   print("Ended")
                   break
       elif Initial_input in ("G","g"):
-         gcode = open("E:\\gcode.txt", "r")
+         gcode = open("C:\\Users\Shrikant\Downloads\Kinematics\gcode.txt", "r")  # Yes change according to your gcode location (prefered location of your slicer)
          for x in gcode:
                coordinate_arr = x.split()
                print("x,y",coordinate_arr[1].replace("X",""),coordinate_arr[2].replace("Y",""))
                x=float(coordinate_arr[1].replace("X",""))
                y=float(coordinate_arr[2].replace("Y",""))
-               z=float(coordinate_arr[3].replace("Z",""))
+               #z=float(coordinate_arr[3].replace("Z","")) #UNCOMMENT for z inputs from gcode
                c = math.sqrt(x**2+y**2)
                Phi = math.atan2(y,x)#φ
                h=-1
@@ -151,11 +151,11 @@ while True:
                
       while True:
          r=input("Switch Method to control SCARA:")
-         if r in ("y","n","yes","no"):
+         if r in ("y","n","yes","no","Y","N","QUIT","quit"):
             break
             print("invalid input")
-      if r in ("y","yes"):
+      if r in ("y","yes","Y"):
           continue
-      elif r in ("n","no"):
+      elif r in ("n","no","N","QUIT","quit"):
          print("Ended")
          break
